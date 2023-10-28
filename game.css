@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Playpen Sans', cursive;
+    font-family: 'Playpen Sans', Georgia, 'Times New Roman', Times, serif;
 }
 
 html, body{
@@ -94,7 +94,7 @@ button{
     background-color: transparent;
     height: 60px;
     width: 190px;
-    font-size: 30px;
+    font-size:22px;
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.3s ease-out;
@@ -102,6 +102,11 @@ button{
 
 button:hover{
     background-color: rgba(85, 85, 96, 0.303);
+}
+
+marquee{
+    color: red;
+    font-size: large;
 }
 
 
