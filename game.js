@@ -1,5 +1,5 @@
 let tiktik = new Audio("./countDown.mpeg");
-let tap = new Audio("./pop.mpeg");
+let tap = new Audio("./success.mpeg");
 let gameOver = new Audio("./gameOver.mpeg");
 let letPlay = new Audio("./playAgin.mpeg");
 let wrong = new Audio("./wrongAnswer.mpeg");
@@ -18,36 +18,36 @@ function playAgain(){
 
 var tar = 0;
 function targetChange(){
-    tar = document.querySelector("#hitRandom").textContent = Math.floor(Math.random()*10)
+    tar = document.querySelector("#hitRandom").textContent = Math.floor(Math.random()*10);
+}
+
+let width = document.querySelector("#panel").clientWidth;
+
+let numberOfBubble = 6;
+
+if(width >= 225 && width <= 400){
+    numberOfBubble *= 4;
+} else {
+    switch(width){
+        case 656: 
+        case 432: numberOfBubble *= 6; break;
+        case 614:  numberOfBubble *= 9; break;
+        case 730: numberOfBubble *= 7; break;
+        case 224: numberOfBubble *= 3; break;
+        case 819: numberOfBubble *= 8; break;
+        default:  numberOfBubble *= 10; break;
+    }
 }
 
 function createBubble(){
     let tag = "";
-
-    let width = document.querySelector("#panel").clientWidth;
-
-    let numberOfBubble = 6;
-    
-    if(width >= 225 && width <= 400){
-        numberOfBubble *= 4;
-    } else {
-        switch(width){
-            case 656: 
-            case 432: numberOfBubble *= 6; break;
-            case 614:  numberOfBubble *= 9; break;
-            case 730: numberOfBubble *= 7; break;
-            case 224: numberOfBubble *= 3; break;
-            case 819: numberOfBubble *= 8; break;
-            default:  numberOfBubble *= 10; break;
-        }
-    }
-
     for(let bubble = 1; bubble <= numberOfBubble; bubble++){
-        if(bubble === 6){ tag +=  `<div id="bubble">${tar}</div>`; }
-        else {tag += `<div id="bubble">${Math.floor(Math.random()*10)}</div>`;}
+        tag += `<div id="bubble">${Math.floor((Math.random()*10) + 10 - 1 + 9) % 10}</div>`;
     }
     document.querySelector("#lpanel").innerHTML = tag;
 }
+
+
 
 let countDown = 60;
 function timer(){
@@ -66,6 +66,7 @@ function timer(){
             clearInterval(timerInterval); // it bascially stops the setInterval which is going on...
             document.querySelector("#lpanel").innerHTML = `<div style="text-align: center"><h1>Game Over</h1><br><button onclick="playAgain()">Play again</button></></div>`;
             document.querySelector(".focus").style.color = "green";
+            document.querySelector("#hitRandom").textContent = "-";
         }
     }, 1000)
 }
@@ -81,15 +82,18 @@ function updateScore(){
 
 document.querySelector("#lpanel").addEventListener('click',function(dets){
     var clicked = Number.parseInt(dets.target.textContent);
-    if(tar === clicked){
-        tap.play();
-        updateScore();
-    } else if(document.querySelector("#timerval").textContent != 0){
-        wrong.play();
-    }
     if(document.querySelector("#timerval").textContent != 0){
-        createBubble();
-        targetChange();
+        if(tar === clicked){
+            tap.play();
+            updateScore();
+        } else{
+            wrong.play();
+        }
+       
+        setTimeout(function(){
+            createBubble();
+            targetChange();
+        },2000)
     }
 })
 
