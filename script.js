@@ -68,9 +68,10 @@ document.querySelector("#lpanel").addEventListener('click',function(dets){
 })
 
 
+
 createBubble();
-// timer();
+timer();
 targetChange();
 
-console.log(window.innerWidth, window.innerHeight)
-console.log(document.querySelector("#main").clientWidth);
+// console.log(window.innerWidth, window.innerHeight)
+// console.log(document.querySelector("#main").clientWidth);
