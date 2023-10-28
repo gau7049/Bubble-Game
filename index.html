@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Playpen Sans', cursive;
+        }
+        html, body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        h3{
+            display: none;
+            color: green;
+        }
+        button{
+            height: 100px;
+            width: 200px;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in;
+        }
+
+        button:hover{
+            background-color: rgb(103, 103, 104);
+            color: white;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px 1px black;
+        }
+
+    </style>
+</head>
+<body>
+    <button>Click here</button>
+    <h3>Starting...</h3>
+    <script>
+        let audio = new Audio("./gameMusic.mpeg.mp3");
+        let btn = document.querySelector("button");
+        function music(){
+            audio.play();
+            audio.loop = true;
+        }
+        btn.addEventListener('click',function(){
+            music();
+            document.querySelector('button').innerHTML = `Let's Play`;
+            document.querySelector('h3').style.display = `block`;
+
+            setTimeout(function(){
+                document.querySelector('h3').textContent = `Loading..`;
+                // alert();
+            }, 1000);
+
+            setTimeout(function(){
+                document.querySelector('h3').textContent = `Almost Ready..`;
+                // alert();
+            }, 3000);
+
+            setTimeout(function(){
+                window.location.href = './game.html';
+                // alert();
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
