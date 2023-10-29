@@ -84,7 +84,7 @@ function updateScore(){
 
 document.querySelector("#lpanel").addEventListener('click',function(dets){
     var clicked = Number.parseInt(dets.target.textContent);
-    if(document.querySelector("#timerval").textContent != 0){
+    if(document.querySelector("#timerval").textContent >= 1){
         if(tar === clicked){
             tap.play();
             updateScore();
