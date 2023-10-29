@@ -91,13 +91,17 @@ document.querySelector("#lpanel").addEventListener('click',function(dets){
         } else{
             wrong.play();
         }
-       
-        setTimeout(function(){
-            createBubble();
-            targetChange();
-        },1000)
+
+        if(document.querySelector("#timerval").textContent >= 1){
+            setTimeout(function(){
+                if(document.querySelector("#timerval").textContent >= 1){
+                    createBubble();
+                    targetChange();
+                }
+            },1000);
+        }
     }
-})
+});
 
 
 music();
