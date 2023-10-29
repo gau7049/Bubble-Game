@@ -1,5 +1,5 @@
 let tiktik = new Audio("./countDown.mpeg");
-let tap = new Audio("./success.mpeg");
+let tap = new Audio("./pop.mpeg");
 let gameOver = new Audio("./gameOver.mpeg");
 let letPlay = new Audio("./playAgin.mpeg");
 let wrong = new Audio("./wrongAnswer.mpeg");
@@ -40,9 +40,11 @@ if(width >= 225 && width <= 400){
 }
 
 function createBubble(){
-    let tag = "";
+    let tag = "", pre;
     for(let bubble = 1; bubble <= numberOfBubble; bubble++){
-        tag += `<div id="bubble">${Math.floor((Math.random()*10) + 10 - 1 + 9) % 10}</div>`;
+        let rndm = Math.floor(Math.random()*10);
+        tag += `<div id="bubble">${rndm === pre ? tar : rndm}</div>`;
+        pre = rndm;
     }
     document.querySelector("#lpanel").innerHTML = tag;
 }
@@ -64,8 +66,8 @@ function timer(){
             closeToFinish.pause();
             gameOver.play();
             clearInterval(timerInterval); // it bascially stops the setInterval which is going on...
-            document.querySelector("#lpanel").innerHTML = `<div style="text-align: center"><h1>Game Over</h1><br><button onclick="playAgain()">Play again</button></></div>`;
-            document.querySelector(".focus").style.color = "green";
+            document.querySelector("#lpanel").innerHTML = `<div style="text-align: center"><h1>Your Score</h1><h2>${score}</h2><br><button onclick="playAgain()">Play again</button></h2></div>`;
+            document.querySelector("#upanel").textContent = "Well Played";
             document.querySelector("#hitRandom").textContent = "-";
         }
     }, 1000)
@@ -93,7 +95,7 @@ document.querySelector("#lpanel").addEventListener('click',function(dets){
         setTimeout(function(){
             createBubble();
             targetChange();
-        },2000)
+        },1000)
     }
 })
 
