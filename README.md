@@ -1,24 +1,17 @@
 🎮 Bubble Game
 
-Welcome to the Bubble Game, a fast-paced number challenge!
+Welcome to the fast-paced number challenge! Can you find the target numbers within 60 seconds?
 
 🔢 How to Play:
 
-Find the target numbers within a set of options.
-Click on the correct number to score points.
-Be quick! You have 60 seconds to maximize your score.
-⚡ Game Dynamics:
-
-The challenge increases with each correct click.
-Clicking on the wrong number updates the target, adding difficulty.
+Click the correct number to score.
+Wrong clicks increase the challenge.
 🏆 Scoring:
 
-Your score is displayed at the end.
-Can you beat your highest score?
+Your final score is displayed.
 🔗 Play the Game:
-Click here to play
+Start the challenge
 
 Tech Stack:
 
 HTML, CSS, JavaScript
-Enjoy the game and challenge your number-finding skills!
