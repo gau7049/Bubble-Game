@@ -1,5 +1,4 @@
-🎮 Bubble Game
+Bubble Game
+Play the game [here](https://gau7049.github.io/bubbleGame/).** 🚀. 
 
-Play Now: Bubble Game
-
-Challenge your number-finding skills in this fast-paced game! 🚀
+Enjoy the challenge! 🎮
